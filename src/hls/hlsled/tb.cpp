@@ -1,37 +1,38 @@
 #include "./hlsled.hpp"
+#include "./piyo.hpp"
+#include <gtest/gtest.h>
+#include <iostream>
 
+void call(hoge i, hoge& o)
+{
+  HlsLED(i, o);
+}
+
+TEST(test, t1){
+  hoge o;
+  call(0, o);
+  ASSERT_EQ(o, hoge(7));
+}
+
+TEST(test, t2) {
+  hoge o;
+  call(2, o);
+  ASSERT_EQ(o, hoge(5));
+}
+TEST(test, t3) {
+  hoge o;
+  call(4, o);
+  ASSERT_EQ(o, hoge(3));
+}
+TEST(test, t4) {
+  hoge o;
+  call(7, o);
+  ASSERT_EQ(o, hoge(0));
+}
 
 int main(int argc, char **argv)
 {
-  ap_uint<3> o, expected(7);
-  HlsLED(0, o);
-  if (o.to_uint() != 7) {
-    printf("Illegal value: expected 7, value %d\n", o.to_uint());
-    return 1;
-  }
-
-  HlsLED(1, o);
-  if (o.to_uint()  != 6) {
-    printf("Illegal value: expected 6, value %d\n", o.to_uint());
-    return 1;
-  }
-
-  HlsLED(2, o);
-  if (o.to_uint()  != 5) {
-    printf("Illegal value: expected 5, value %d\n", o.to_uint());
-    return 1;
-  }
-
-  HlsLED(4, o);
-  if (o.to_uint()  != 3) {
-    printf("Illegal value: expected 3, value %d\n", o.to_uint());
-    return 1;
-  }
-
-  HlsLED(7, o);
-  if (o.to_uint() != 0) {
-    printf("Illegal value: expected 0, value %d\n", o.to_uint());
-    return 1;
-  }
-  return 0;
+  piyo("hoge");
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }

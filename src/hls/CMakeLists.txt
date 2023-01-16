@@ -1,1 +1,2 @@
+add_subdirectory(foobar)
 add_subdirectory(hlsled)

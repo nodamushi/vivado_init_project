@@ -2,6 +2,11 @@
 
 Simple sample project for Cora Z7 07S.
 
+## Environment
+
+- Ubuntu18.04
+- Vivado 2021.1
+
 ## License
 
 - Unlicense

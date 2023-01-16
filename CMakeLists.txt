@@ -1,13 +1,23 @@
 cmake_minimum_required(VERSION 3.14)
 project(study)
-set(CMAKE_CXX_STANDARD 11)
 
 # Download
 include(FetchContent)
 FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+include (GoogleTest)
+
+FetchContent_Declare(
   vivado_cmake_module
   GIT_REPOSITORY  https://github.com/nodamushi/vivado_cmake_module.git
-  GIT_TAG v0.0.1
+  GIT_TAG 638b47260c8faef208d10ced657b4fa3ef0608f2
 )
 FetchContent_MakeAvailable(vivado_cmake_module)
 list(APPEND CMAKE_MODULE_PATH ${vivado_cmake_module_SOURCE_DIR})
