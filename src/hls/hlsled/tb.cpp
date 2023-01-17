@@ -1,3 +1,5 @@
+#include <_gmp_const.h>
+
 #include "./hlsled.hpp"
 #include "./piyo.hpp"
 #include <gtest/gtest.h>
