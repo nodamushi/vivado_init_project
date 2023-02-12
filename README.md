@@ -67,7 +67,8 @@ make JTAG=<Target Number> program_vivado_study_pr1
 - `create_project_hlsled` : Create [hlsled](./src/hls/hlsled) Vitis HLS project
 - `open_hlsled` : Open hlsled project
 - `clear_hlsled` : Delete [hlsled](./src/hls/hlsled) Vitis HLS project
-- `test_hlsled` : Compile C++ Test of [hlsled](./src/hls/hlsled) (* You can run this test using `ctest`)
+- `build_test_hlsled` : Compile C++ Test of [hlsled](./src/hls/hlsled) (* You can run this test using `ctest`)
+- `test_hlsled` : Run `build_test_hlsled` products
 - `csynth_hlsled` : Perform high-level synthesis of [hlsled](./src/hls/hlsled)
 - `cosim_hlsled` : Run C/RTL simulation of [hlsled](./src/hls/hlsled) (It don't work)
 
@@ -80,5 +81,7 @@ make JTAG=<Target Number> program_vivado_study_pr1
 
 ## Generated Vivado Project Directory
 
-- `build/vivado/vivado_study.prj` : Vivado project
+- `build/vivado/dfx/vivado_study.prj` : Vivado project
+- `build/vivado/zynq/zynq_study.prj` : Zynq vivado project
+- `build/vivado/zynq/zynq_vitis.prj` : Zynq vitis workspace
 - `build/src/hls/hlsled/hlsled` : Vitis HLS project
