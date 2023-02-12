@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.14)
 project(hlsled)
 
 # library sample
-add_library(piyolib STATIC piyo.cpp)
 
 add_hls_project(hlsled
   TOP     HlsLED
@@ -14,10 +13,6 @@ add_hls_project(hlsled
   SOURCES hlsled.cpp
   LINK    foobarlib # ../foobar header only library sample
   # Test
+  CTEST
   TB_SOURCES tb.cpp
-  TB_LINK piyolib GTest::gtest
 )
-
-add_test(
-  NAME test_hlsled
-  COMMAND $<TARGET_FILE:test_hlsled>)

@@ -2,39 +2,33 @@
 
 #include "./hlsled.hpp"
 #include "./piyo.hpp"
-#include <gtest/gtest.h>
 #include <iostream>
 
-void call(hoge i, hoge& o)
+hoge call(hoge i)
 {
+  hoge o;
   HlsLED(i, o);
-}
-
-TEST(test, t1){
-  hoge o;
-  call(0, o);
-  ASSERT_EQ(o, hoge(7));
-}
-
-TEST(test, t2) {
-  hoge o;
-  call(2, o);
-  ASSERT_EQ(o, hoge(5));
-}
-TEST(test, t3) {
-  hoge o;
-  call(4, o);
-  ASSERT_EQ(o, hoge(3));
-}
-TEST(test, t4) {
-  hoge o;
-  call(7, o);
-  ASSERT_EQ(o, hoge(0));
+  return o;
 }
 
 int main(int argc, char **argv)
 {
-  piyo("hoge");
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+  hoge o;
+  if (call(0) != hoge(7)) {
+    std::cout << "call(0) != hoge(7)" << std::endl;
+    return 1;
+  }
+  if (call(2) != hoge(5)) {
+    std::cout << "call(2) != hoge(7)" << std::endl;
+    return 1;
+  }
+  if (call(4) != hoge(3)) {
+    std::cout << "call(4) != hoge(3)" << std::endl;
+    return 1;
+  }
+    if (call(7) != hoge(0)) {
+    std::cout << "call(7) != hoge(0)" << std::endl;
+    return 1;
+  }
+  return 0;
 }

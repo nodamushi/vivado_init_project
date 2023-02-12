@@ -2,8 +2,9 @@
 
 void HlsLED(hoge i, hoge& o)
 {
-  // ↓ ap_ctrl_noneを指定してるとcosimは動かないみたい
-// #pragma HLS INTERFACE ap_ctrl_none port=return
+  // ↓ AXI Lite + ap_ctrl_noneを指定してるとcosimは動かないみたい
+  // cosim を試す場合はコメントアウトしてください。
+#pragma HLS interface ap_ctrl_none port=return
 #pragma HLS interface s_axilite port=i
 #pragma HLS stable variable=i
 
